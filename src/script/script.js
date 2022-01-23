@@ -1,3 +1,5 @@
+let blogItem = [];
+
 async function getBlog(){
     await fetch('https://api.freerealapi.com/blogs')
         .then(value => {
@@ -7,7 +9,10 @@ async function getBlog(){
                 throw Error(value.status);
             }
         })
-        .then(value => setBlog(value.blogs))
+        .then(value => {
+            setBlog(value.blogs);
+            blogItem = value.blogs;
+        })
         .catch(err => console.log(err));
 }
 
@@ -20,6 +25,7 @@ function setBlog(blogs){
         }
         
         const newDiv = document.createElement("div");
+        newDiv.setAttribute("onclick", `showArticle(${index})`);
         newDiv.id = `blog-${(index+1)}`;
         newDiv.innerHTML = `<div class="blog-img">
         <img src="${blogInf.img}" alt="${blogInf.title}"></div>
@@ -64,4 +70,26 @@ function filterFun(){
             }
         }
     })
+}
+
+// show articles
+function showArticle(item) {
+    const headerArt = document.querySelector(".show-header");
+    const heading = document.querySelector(".heading-article > h1");
+    const writer = document.querySelector(".writer-article > h3");
+    const text = document.querySelector("#article");
+    const tags = document.querySelector(".article-tags");
+
+    document.querySelector(".search-body").classList.toggle("hidden");
+    document.querySelector(".show-body").classList.toggle("hidden");
+    window.scroll(0, 0);
+
+    if (item != null){
+        let blogSelect = blogItem[item];
+        headerArt.style.backgroundImage = `url('${blogSelect.image}')`;
+        heading.innerHTML = blogSelect.title;
+        writer.innerHTML = blogSelect.user.name;
+        text.innerHTML = blogSelect.text.split(`\n\n`).join("</br>");
+        tags.innerHTML = blogSelect.tags.join(" , ");
+    }
 }

@@ -75,7 +75,13 @@ main{
     padding-bottom: 20px;
     border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+
+.blog > div:hover {
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.15);
 }
 
 .blog-img{

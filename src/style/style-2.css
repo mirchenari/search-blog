@@ -1,0 +1,48 @@
+.show-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 100px;
+    color: #fff;
+    background-color: #8c8c8c;
+    background-blend-mode: multiply;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+img {
+    max-width: 100%;
+}
+
+.close {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100px;
+    cursor: pointer;
+}
+
+.show-header > div:nth-child(2){
+    margin-bottom: 30px;
+}
+
+.show-header h1 {
+    font-size: 23px;
+    text-align: justify;
+}
+
+.writer-article {
+    color: #99ff0a;
+}
+
+.show-article {
+    text-align: justify;
+    line-height: 40px;
+    padding-bottom: 50px;
+}
+
+.article-tags {
+    color: #6a00ff;
+    line-height: 30px;
+}

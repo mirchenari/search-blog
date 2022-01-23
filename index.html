@@ -6,35 +6,64 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Search and filter in our blog</title>
-    <link rel="stylesheet" href="./src/style/style.css"> <!-- style -->
-    <link rel="shortcut icon" href="./src/image/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../style/style.css"> <!-- search body style -->
+    <link rel="stylesheet" href="../style/style-2.css"> <!-- show body style -->
+    <link rel="shortcut icon" href="image/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik">
 </head>
 
 <body onload="getBlog()">
-    <header class="header-page">
-        <div class="container">
-            <div class="heading">
-                <h1>Blog filter</h1>
+    <!-- for search in blog -->
+    <div class="search-body">
+        <header class="header-page">
+            <div class="container">
+                <div class="heading">
+                    <h1>Blog filter</h1>
+                </div>
+
+                <div class="search">
+                    <input type="text" placeholder="Search in blog...">
+                </div>
+
+                <div class="filter">
+                    <div class="item-1 active">All</div>
+                    <div class="item-2">Milad Azami</div>
+                    <div class="item-3">Erfan Yousefi</div>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <div class="blog"></div>
+        </main>
+    </div>
+
+    <!-- for watch blogs -->
+    <div class="show-body hidden">
+        <header class="show-header">
+            <div class="close" onclick="showArticle()">
+                <img src="./image/close.png" alt="بستن">
             </div>
 
-            <div class="search">
-                <input type="text" placeholder="Search in blog...">
+            <div class="heading-article">
+                <h1></h1>
             </div>
 
-            <div class="filter">
-                <div class="item-1 active">All</div>
-                <div class="item-2">Milad Azami</div>
-                <div class="item-3">Erfan Yousefi</div>
+            <div class="writer-article">
+                <h3></h3>
             </div>
-        </div>
-    </header>
+        </header>
 
-    <main>
-        <div class="blog"></div>
-    </main>
+        <main>
+            <article class="show-article">
+                <p id="article"></p>
+            </article>
 
-    <script src="./src/script/script.js"></script>
+            <div class="article-tags"></div>
+        </main>
+    </div>
+
+    <script src="../script/script.js"></script>
 </body>
 
 </html>
