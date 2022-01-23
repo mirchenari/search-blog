@@ -29,7 +29,7 @@ img {
 
 .show-header h1 {
     font-size: 23px;
-    text-align: justify;
+    /* text-align: justify; */
 }
 
 .writer-article {
